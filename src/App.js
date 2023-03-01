@@ -22,13 +22,18 @@ function App() {
     setfoodToDisplay(foodFilter)
   }
 
+  const [showHide, setShowHide] = useState(false);
+  const handleShowHide = () => {
+    setShowHide(prev => !prev);
+  }
+
   return (
     <div className="App">
-      <AddFoodForm addFood={addNewFood} />
+      {showHide && <AddFoodForm addFood={addNewFood} />}
 
-      <Button> Hide Form / Add New Food </Button>
+      <Button onClick={handleShowHide}> {showHide ? "Hide Form" : "Add New Food"} </Button>
 
-      <Search searchFood={searchFood}/>
+      <Search searchFood={searchFood} />
 
       <Divider>Food List</Divider>
 
