@@ -1,20 +1,20 @@
 import { Divider, Input } from 'antd';
 import { useState } from 'react';
 
-const Search = (props) => {
-  const { searchFood } = props;
+const Search = ({ searchFood }) => {
   const [searchValue, setSearchValue] = useState("");
-
+  
   const handleSearch = (e) => {
-    setSearchValue(e.target.value);
+    setSearchValue(e.target.value)
     searchFood(e.target.value)
-  }
+  };
+
   return (
      <>
       <Divider>Search</Divider>
 
       <label>Search</label>
-      <Input value={searchValue} type="text" onChange={handleSearch} />
+      <Input value={searchValue} type={"text"} onChange={handleSearch} />
     </>
   )
 }
