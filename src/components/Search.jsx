@@ -3,13 +3,9 @@ import { useState } from 'react';
 
 const Search = (props) => {
   const { searchFood } = props;
-
-  console.log(searchFood)
   const [searchValue, setSearchValue] = useState("");
-  console.log("searchValue", searchValue)
 
   const handleSearch = (e) => {
-    console.log(e)
     setSearchValue(e.target.value);
     searchFood(e.target.value)
   }
