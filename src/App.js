@@ -4,6 +4,7 @@ import foodList from './foods.json';
 import FoodBox from './components/FoodBox';
 import AddFoodForm from './components/AddFoodForm';
 import Search from './components/Search';
+import NoContent from './components/NoContent';
 import { Row, Divider, Button } from "antd";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
       <Search searchFood={searchFood} />
       <Divider>Food List</Divider>
       <Row style={{ width: '100%', justifyContent: 'center' }}>
-        {foodToDisplay.map((elem, i) => <FoodBox food={elem} key={i} toDelete={deleteFood} />)}
+        {foodToDisplay.length === 0 ? <NoContent /> : foodToDisplay.map((elem, i) => <FoodBox food={elem} key={i} toDelete={deleteFood} />)}        
       </Row>
     </div>
   );
